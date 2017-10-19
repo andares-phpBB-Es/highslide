@@ -1,27 +1,62 @@
-<!-- IF  S_VIEWTOPIC or S_IN_UCP or S_IN_POSTING or S_RECENT_TOPICS -->
-<script type="text/javascript" src="{BOARD_URL}ext/bb3mobi/highslide/highslide-full.min.js"></script>
+<!-- IF  S_VIEWTOPIC or S_IN_UCP or S_IN_POSTING or S_RECENT_TOPICS or SCRIPT_NAME == "search" -->
+<script type="text/javascript" src="{BOARD_URL}ext/bb3mobi/highslide/highslide-with-gallery.js"></script>
 <script type="text/javascript">
-hs.graphicsDir = '{BOARD_URL}ext/bb3mobi/highslide/graphics/';
-hs.align = 'center';
-hs.transitions = ['expand', 'crossfade'];
-hs.fadeInOut = true;
-hs.dimmingOpacity = 0.8;
-hs.outlineType = 'rounded-white';
-hs.captionEval = 'this.thumb.title';
-// This value needs to be set to false, to solve the issue with the highly increasing view counts.
-hs.continuePreloading = false;
-// Add the slideshow providing the controlbar and the thumbstrip
-hs.addSlideshow({
+// Language strings
+hs.lang = {
+	cssDirection:		'ltr',
+	loadingText :		'{L_LOADINGTEXT}',
+	loadingTitle :		'{L_LOADINGTITLE}',
+	focusTitle :		'{L_FOCUSTITLE}',
+	fullExpandTitle :	'{L_FULLEXPANDTITLE}',
+	previousText :		'{L_PREVIOUSTEXT}',
+	nextText :			'{L_NEXT}',
+	moveText :			'{L_MOVE}',
+	closeText :			'{L_CLOSETEXT}',
+	closeTitle :		'{L_CLOSETEXT} (esc)',
+	resizeTitle :		'{L_RESIZETITLE}',
+	playText :			'{L_PLAYTEXT}',
+	playTitle :			'{L_PLAYTITLE}',
+	pauseText :			'{L_PAUSETEXT}',
+	pauseTitle :		'{L_PAUSETITLE}',
+	previousTitle :		'{L_PREVIOUSTITLE}',
+	nextTitle :			'{L_NEXTTITLE}',
+	moveTitle :			'{L_MOVE}',
+	fullExpandText :	'1:1',
+	number:				'{L_NUMBER}',
+	restoreTitle :		'{L_RESTORETITLE}'
+};
+
+	hs.graphicsDir = '{BOARD_URL}ext/bb3mobi/highslide/graphics/';
+	hs.align = 'center';
+	hs.transitions = ['expand', 'crossfade'];
+	hs.fadeInOut = true;
+	hs.dimmingOpacity = 0.8;
+	hs.outlineType = 'rounded-white';
+	hs.captionEval = 'this.thumb.title';
+	// This value needs to be set to false, to solve the issue with the highly increasing view counts.
+	hs.continuePreloading = false;
+	hs.marginLeft = 85;
+	hs.marginBottom = 0;
+	hs.marginTop = 0;
+	hs.numberPosition = 'caption';
+	// Add the slideshow providing the controlbar and the thumbstrip
+	hs.addSlideshow({
 	interval: 5000,
-	repeat: false,
-	useControls: true,
-	fixedControls: 'fit',
-	overlayOptions: {
-		opacity: .75,
-		position: 'top center',
-		hideOnMouseOut: true
-	}
-});
+
+		repeat: false,
+		useControls: true,
+		fixedControls: 'fit',
+		overlayOptions: {
+			opacity: .6,
+			position: 'top center',
+			hideOnMouseOut: true
+		},
+		thumbstrip: {
+			position: 'middle left',
+			mode: 'vertical',
+			relativeTo: 'viewport'
+		}
+	});
 </script>
 <script type="text/javascript">
 function add_highslide(e, elements) {
@@ -59,7 +94,7 @@ function add_highslide(e, elements) {
 			};
 		})(jQuery);
 		elements.find("dl.thumbnail a").addClass("highslide").attr("onclick", "return hs.expand(this)");
-		// BBCode [img]highslide[/img]     
+		// BBCode [img]highslide[/img]
 		elements.find('.postimage').not('a.highslide .postimage').bindImageLoad(function () {
 			$(this).removeAttr("width")
 			$(this).removeAttr("height")
