@@ -1,0 +1,5 @@
+services:
+    bb3mobi.highslide.listener:
+        class: bb3mobi\highslide\event\listener
+        tags:
+            - { name: event.listener }
