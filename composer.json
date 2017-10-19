@@ -1,15 +1,20 @@
 {
     "name": "bb3mobi/highslide",
     "type": "phpbb-extension",
-    "description": "phpBB 3.1 Extension Highslide",
+    "description": "phpBB 3.1/3.2 Extension Highslide",
     "homepage": "http://bb3.mobi",
     "version": "0.0.2",
-    "time": "2014-12-01",
+    "time": "2017-10-19",
     "license": "GPL-2.0",
     "authors": [
         {
             "name": "Anvar",
             "homepage": "http://apwa.ru",
+            "role": "Developer"
+        },
+        {
+            "name": "Sheer",
+            "homepage": "https://www.phpbbguru.net/community",
             "role": "Developer"
         }
     ],
