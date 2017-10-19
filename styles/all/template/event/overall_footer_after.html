@@ -51,34 +51,28 @@ hs.lang = {
 			position: 'top center',
 			hideOnMouseOut: true
 		},
+		<!-- IF S_HIGHSLIDE_TYPE -->
 		thumbstrip: {
 			position: 'middle left',
 			mode: 'vertical',
 			relativeTo: 'viewport'
 		}
+		<!-- ENDIF -->
 	});
 
 function add_highslide(e, elements) {
-/* полная рк версия подхвата highslide с уменьшением */
 	var scr_w = $(document).width();
 	var scr_h = $(document).height();
 	if (scr_w > 800 && scr_h > 600) {
 		;(function ($) {
 			$.fn.bindImageLoad = function (callback) {
 				function isImageLoaded(img) {
-					// Во время события load IE и другие браузеры правильно
-					// определяют состояние картинки через атрибут complete.
-					// Исключение составляют Gecko-based браузеры.
 					if (!img.complete) {
 						return false;
 					}
-					// Тем не менее, у них есть два очень полезных свойства: naturalWidth и naturalHeight.
-					// Они дают истинный размер изображения. Если какртинка еще не загрузилась,
-					// то они должны быть равны нулю.
 					if (typeof img.naturalWidth !== "undefined" && img.naturalWidth === 0) {
 						return false;
 					}
-					// Картинка загружена.
 					return true;
 				}
 				return this.each(function () {
@@ -100,8 +94,9 @@ function add_highslide(e, elements) {
 			$(this).css({ width: "", height: "" });
 			var h = $(this).height();
 			var w = $(this).width();
-			var size = 420; // Img tag max width
-			if (h > 200) { // Highslide > min height
+			var size = 420;		// Img tag max width
+			if (h > 200)		// Highslide > min height
+			{
 				var i = $(this).attr("src");
 				$(this).wrap('<a class="highslide" href="' +i+ '" onclick="return hs.expand(this)"></a>');
 			}
