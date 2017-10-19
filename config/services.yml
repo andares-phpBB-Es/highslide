@@ -1,5 +1,8 @@
 services:
     bb3mobi.highslide.listener:
         class: bb3mobi\highslide\event\listener
+        arguments:
+            - '@template'
+            - '@config'
         tags:
             - { name: event.listener }
