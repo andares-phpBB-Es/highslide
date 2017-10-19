@@ -1,0 +1,23 @@
+<!-- INCLUDE overall_header.html -->
+<script type="text/javascript" src="{ROOT_PATH}ext/sheer/ptrequest/adm/style/jscolor.js"></script>
+<a name="maincontent"></a>
+
+<h1>{L_ACP_HIGH_SLIDE}</h1>
+<p>{L_ACP_HIGHSLIDE_EXPLAIN}</p>
+
+<form method="post" action="{U_ACTION}">
+	<fieldset>
+		<legend>{L_ACP_HIGH_SLIDE_CONFIG}</legend>
+		<dl>
+			<dt><label for="load_search">{L_ACP_HIGH_SLIDE_TYPE}:</label><br /><span>{L_ACP_HIGH_SLIDE_TYPE_EXPLAIN}</span></dt>
+			<dd><label><input type="radio" class="radio" id="highslide_type" name="highslide_type" value="1"<!-- IF S_GALLERY --> checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+			<label><input type="radio" class="radio" name="highslide_type" value="0"<!-- IF not S_GALLERY --> checked="checked"<!-- ENDIF --> /> {L_NO}</label></dd>
+		</dl>
+	</fieldset>
+	<p class="submit-buttons">
+		{S_HIDDEN_FIELDS}
+		{S_FORM_TOKEN}
+		<input type="submit" name="submit" value="{L_SUBMIT}" class="button1" />
+	</p>
+</form>
+<!-- INCLUDE overall_footer.html -->
